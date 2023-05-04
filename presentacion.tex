@@ -1,0 +1,80 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+\input{Algo1Macros}
+
+\title{Prueba de Oposición}
+\author{Eric Brandwein}
+\date{5 de Mayo de 2023}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section{Marco}
+\begin{frame}{Marco}
+    Guías de ejercicios:
+    \begin{enumerate}
+        \item Lógica
+        \item Introducción al Lenguaje de Especificación
+        \item {\bfseries\color{blue}Especificación de problemas}
+        \item Precondición más débil en SmallLang
+        \item Demostración de corrección de ciclos en SmallLang
+        \item Testing
+        \item Ciclos a partir de invariantes
+        \item Tiempo de Ejecución de Peor Caso de un Programa
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Guía 3: Especificación de Problemas}
+    \large
+    Con esta guía se busca que el estudiante obtenga las herramientas básicas para después poder demostrar que un algoritmo es correcto. Se trata principalmente sobre el \textbf{contrato} de un algoritmo.\pause
+    \vspace{2em}
+    \begin{itemize}
+        \item Se introducen los conceptos de pre- y poscondición.\pause
+        \item Se comienzan a implementar especificaciones de problemas con los \texttt{proc}. 
+    \end{itemize}
+\end{frame}
+
+\section{Ejercicio}
+\begin{frame}{Ejercicio}
+    \large
+    El siguiente ejercicio nos pide analizar un \texttt{proc} y determinar si es correcto o no, para familiarizarnos con el concepto de pre- y poscondición antes de comenzar a implementarlos nosotros mismos. 
+
+\end{frame}
+
+\begin{frame}{Ejercicio 2}
+Veamos la siguiente especificación de un problema:
+\begin{proc}{elementosQueSumen}{\\
+    \qquad$\In l: \TLista{\ent}, \In suma: \ent, \Out result: \TLista{\ent}$\\
+}{}{}
+    \begin{adjustwidth}{+2em}{}   
+        \pre{True}
+    \end{adjustwidth}
+    \begin{adjustwidth}{+2em}{}
+        \post{
+            contenida(result, l) \land suma = \sum_{i = 0}^{|result| - 1}result[i]
+        }
+    \end{adjustwidth}
+\end{proc}
+
+\pred{contenida}{$adentro: \TLista{\ent}, afuera: \TLista{\ent}$}{
+    \begin{adjustwidth}{+2em}{}    
+        $(\forall x: \ent)(
+            \# apariciones(x,adentro) \leq \# apariciones(x,afuera)
+        )$
+    \end{adjustwidth}
+}
+\pause
+
+\begin{enumerate}[a)]
+    \item ¿Es válida esta especificación? En caso contrario, mostrar por qué.\pause
+    \item ¿Qué tenemos que cambiar para que sea válida?
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+    \center\huge
+    ¡Gracias!
+\end{frame}
+\end{document}

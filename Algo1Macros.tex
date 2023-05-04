@@ -1,4 +1,3 @@
-\documentclass{article}
 \usepackage{ifthen}
 \usepackage{amssymb}
 \usepackage{multicol}
@@ -301,9 +300,9 @@ Primer Cuatrimestre 2021\\
     {\normalfont\ttfamily #1}%
     \ifthenelse{\equal{#2}{}}{}{\ (#2) }%
     \{%
-    \begin{adjustwidth}{+2em}{}
-      \ensuremath{#3}
-    \end{adjustwidth}
+    
+    #3
+    
     \}%
     {\normalfont\bfseries\,\par}%
 }
@@ -331,7 +330,7 @@ Primer Cuatrimestre 2021\\
   \renewcommand{\aux}[4]{%
     {\normalfont\bfseries\ttfamily aux\ }%
     {\normalfont\ttfamily ##1}%
-    \ifthenelse{\equal{##2}{}}{}{\ (##2)}\ : ##3\, = \ensuremath{##4}%
+    \ifthenelse{\equal{##2}{}}{}{\ (##2)}\ : ##3\, = ##4%
     {\normalfont\bfseries\,;\par}%
   }
   \renewcommand{\pred}[3]{%
@@ -339,9 +338,10 @@ Primer Cuatrimestre 2021\\
     {\normalfont\ttfamily ##1}%
     \ifthenelse{\equal{##2}{}}{}{\ (##2) }%
     \{%
-    \begin{adjustwidth}{+5em}{}
-      \ensuremath{##3}
-    \end{adjustwidth}
+    % \begin{adjustwidth}{+5em}{}
+      ##3
+    % \end{adjustwidth}
+    
     \}%
     {\normalfont\bfseries\,\par}%
   }
